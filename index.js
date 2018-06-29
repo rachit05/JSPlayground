@@ -18,3 +18,8 @@ let filterOjects = objects
                         return object.name
                     })
 console.log(filterOjects)
+
+
+function gitFunction(){
+    console.log('hello form git')
+}
