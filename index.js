@@ -1,20 +1,20 @@
-function name(n){
-    return n;
+const li = Array.from(document.querySelectorAll('[type=checkbox]'))
+li.forEach((item) => {
+    item.addEventListener('click', function(){
+        let parent = this.parentNode
+        parent.classList.toggle('done')
+        if(parent.classList == 'done'){
+            this.setAttribute('title','mark as not done')
+        }
+        else{
+            this.setAttribute('title','mark as undone')
+        }
+    })
+})
+
+function add(){
+    let ul = document.querySelector('ul')
+    let task = document.querySelector('#todoTask').value
+    const append = ul.appendChild(document.createElement('li'))
+    append.innerHTML = '<input type="checkbox"> '+task
 }
-let objects = [
-    {name:'dog',type:'animal'},
-    {name:'cat',type:'animal'},
-    {name:'lotus',type:'flower'},
-    {name:'naman',type:'human'},
-    {name:'audi',type:'car'},
-    {name:'bmw',type:'car'},
-    {name:'john',type:'human'},
-]
-let filterOjects = objects
-                    .filter(function (object){
-                        return object.type == 'animal'
-                    })
-                    .map(function(object){
-                        return object.name
-                    })
-console.log(filterOjects)
