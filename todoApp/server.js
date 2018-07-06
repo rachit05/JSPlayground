@@ -18,7 +18,7 @@ mustacheExpressInstance.cache = null
 app.engine('mustache',mustacheExpressInstance)
 app.set('view engine','mustache')
 app.set('views' , __dirname + '/views')
-
+app.use(express.static('src'))
 app.use('/', router)
 
 

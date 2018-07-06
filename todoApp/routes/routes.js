@@ -40,4 +40,15 @@ router.post('/todos/:id/completed', (req, res) => {
         res.redirect('/')
     })
 })
+
+router.post('/todos/:id/delete', (req, res) => {
+    Todo
+    .findByIdAndRemove(req.params.id)
+    .exec()
+    .then(function(result){
+        console.log('deleted successfully')
+        res.redirect('/')
+    })
+})
+
 module.exports = router;

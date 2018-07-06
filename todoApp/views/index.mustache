@@ -5,33 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Todo App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Hello World</h1>
-    <form action="/todos" method="post">
-        <input type="text" name="description" placeholder="Add task">
-        <button type="submit">Add</button>
-    </form>
-
-    <ul>
+<body class="container">
+    <p class="blockquote">
+        <h1 class="display-4 text-center">Let us remember what you have to do!</h1>
+        <small class="blockquote-footer text-muted  text-center">Your Well Wisher!</small>
+    </p>
+    
+ 
+    <div class="card col-md-12 px-0">
+    <h1 class="card-header">Tasks you have to do</h1>
+    <ul class="list-group">
         {{#todo}}
-            <li>
-                <form action="/todos/{{_id}}/completed" method="post">
-                    {{description}} <button type="submit">done</button>
+            <li class="list-group-item d-flex justify-content-between align-items-center col-md-12">
+                <form action="/todos/{{_id}}/completed" class="container-fluid row" method="post">
+                    <div class="col-md-10 lead">{{description}}</div>
+
+                    <div class="btn-group col-md-2" role="group">
+                        <button type="submit" class="btn btn-outline-success btn-sm">Done</button>
+                        <button type="submit" formaction="/todos/{{_id}}/delete" class="btn btn-outline-danger btn-sm">Remove</button>
+                    </div>
+
                 </form>
             </li>
         {{/todo}}
     </ul>
+    </div>
 
-    <h1>DONE</h1>
-    <ul>
+    <div class="card col-md-12 px-0">
+    <h1 class="card-header">Tasks you hav done</h1>
+    <ul class="list-group">
         {{#doneTodo}}
-            <li>
-                <form action="/todos/{{_id}}/completed" method="post">
-                    {{description}} <button type="submit">done</button>
+            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-warning col-md-12">
+                <form action="/todos/{{_id}}/completed" class="container-fluid row" method="post">
+                    <div class="col-md-10 lead">{{description}}</div>
+                    <button type="submit" class="btn btn-outline-danger btn-sm col-md-2">Undo</button>
                 </form>
             </li>
         {{/doneTodo}}
     </ul>
+    </div>
+
+
+    <form action="/todos" class="fixed-bottom  input-group container bg-light py-2 px-5" method="post">
+        <input type="text" class="form-control" name="description" aria-describedby="helpId" placeholder="add task">
+        <div class=" input-group-append">
+        <button type="submit" class="btn btn-outline-primary">Add new task</button>
+        </div>
+    </form>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
