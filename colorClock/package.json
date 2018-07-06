@@ -1,0 +1,20 @@
+{
+  "name": "colorclock",
+  "version": "1.0.0",
+  "description": "a simple clock",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "clock",
+    "js",
+    "bodybackground",
+    "animation"
+  ],
+  "author": "rachit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
