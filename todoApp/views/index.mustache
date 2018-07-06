@@ -17,10 +17,21 @@
         {{#todo}}
             <li>
                 <form action="/todos/{{_id}}/completed" method="post">
-                    {{description}} - {{done}} <button type="submit">done</button>
+                    {{description}} <button type="submit">done</button>
                 </form>
             </li>
         {{/todo}}
+    </ul>
+
+    <h1>DONE</h1>
+    <ul>
+        {{#doneTodo}}
+            <li>
+                <form action="/todos/{{_id}}/completed" method="post">
+                    {{description}} <button type="submit">done</button>
+                </form>
+            </li>
+        {{/doneTodo}}
     </ul>
 </body>
 </html>
